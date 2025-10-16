@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giorgos Koryfidis - Subatomic Physics Portfolio</title>
+    <title>Giorgos Koryfidis - Portfolio</title>
     <!-- Load Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configure Tailwind for a modern look (Inter font is assumed) -->
@@ -13,7 +13,9 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Slate-900 */
+            background-color: #0c101c; /* Slightly darker background for contrast */
+            /* Subtle radial gradient background effect */
+            background-image: radial-gradient(at 0% 100%, #1e293b 0, transparent 50%), radial-gradient(at 100% 0%, #1e293b 0, transparent 50%);
             color: #f8fafc; /* Slate-50 */
         }
         .project-card {
@@ -21,14 +23,20 @@
         }
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.5), 0 4px 6px -2px rgba(79, 70, 229, 0.3); /* Custom blue shadow */
+            box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.5); /* Stronger blue shadow */
+        }
+        /* Custom gradient for the hero name */
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
     </style>
 </head>
 <body class="min-h-screen antialiased">
 
     <!-- Header & Navigation -->
-    <header class="p-4 border-b border-indigo-900 bg-slate-900 sticky top-0 z-10">
+    <header class="p-4 border-b border-indigo-900/50 bg-slate-900 sticky top-0 z-10">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-extrabold text-indigo-400 tracking-wider">
                 &lt;GiorgosKoryfidis /&gt;
@@ -45,32 +53,63 @@
 
         <!-- Hero Section -->
         <section id="hero" class="text-center py-16 md:py-24">
-            <h2 class="text-5xl md:text-6xl font-black mb-4 leading-tight">
-                Hi, I'm <span class="text-indigo-400">Giorgos Koryfidis</span>.
+            <!-- PROFILE PHOTO SECTION -->
+            <!-- IMPORTANT: Replace the 'src' URL below with the public link to your actual profile picture! -->
+            <img 
+                src="https://placehold.co/160x160/334155/f8fafc/png?text=GK" 
+                alt="Giorgos Koryfidis Profile Photo Placeholder" 
+                class="rounded-full mx-auto mb-6 ring-4 ring-indigo-500/50 shadow-2xl"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/0f172a/f8fafc?text=GK'"
+            >
+            <!-- END PROFILE PHOTO SECTION -->
+
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+                Hi, I'm 
+                <span class="gradient-text bg-gradient-to-r from-indigo-400 to-purple-500">
+                    Giorgos Koryfidis
+                </span>.
             </h2>
             <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
-                I'm a **Master's student in Subatomic Physics**, specializing in **Experimental Physics**, **hands-on detector experience**, and **data analysis** for particle detectors.
+                I'm a Master's student in Subatomic Physics and Technological Applications in Aristotle University of Thessaloniki, specializing in experimental physics, hands-on detector & hardware work, and characterization data analysis for particle detectors.
             </p>
-            <a href="#projects" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg transition duration-300 ease-in-out">
-                View My Research
+            <a href="#projects" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                My Projects
             </a>
+        </section>
+        
+        <!-- Skills/Expertise Section -->
+        <section id="skills" class="text-center py-12 md:py-16 border-t border-b border-indigo-900/50 my-10 bg-slate-900/30 rounded-2xl p-6 shadow-xl">
+            <h3 class="text-3xl font-bold text-white mb-8">Core Expertise</h3>
+            <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+                <!-- Physics & Experiment -->
+                <span class="bg-indigo-600/30 text-indigo-300 px-5 py-2 rounded-full font-medium text-base border border-indigo-500/50 shadow-md">Experimental High Energy Physics</span>
+                <span class="bg-fuchsia-600/30 text-fuchsia-300 px-5 py-2 rounded-full font-medium text-base border border-fuchsia-500/50 shadow-md">Detector Electronics & Data Acquisition</span>
+                <span class="bg-fuchsia-600/30 text-fuchsia-300 px-5 py-2 rounded-full font-medium text-base border border-fuchsia-500/50 shadow-md">Gaseous & Silicon Detectors</span>
+                                <span class="bg-fuchsia-600/30 text-fuchsia-300 px-5 py-2 rounded-full font-medium text-base border border-fuchsia-500/50 shadow-md">Detector Quality Assurance Testing</span>
+
+
+                <!-- Computing & Analysis -->
+                <span class="bg-purple-600/30 text-purple-300 px-5 py-2 rounded-full font-medium text-base border border-purple-500/50 shadow-md">Data Analysis</span>
+                <span class="bg-purple-600/30 text-purple-300 px-5 py-2 rounded-full font-medium text-base border border-purple-500/50 shadow-md">ROOT</span>
+                <span class="bg-purple-600/30 text-purple-300 px-5 py-2 rounded-full font-medium text-base border border-purple-500/50 shadow-md">Python</span>
+            </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-12 border-t border-indigo-900">
-            <h3 class="text-3xl font-bold text-center mb-10 text-white">Relevant Projects</h3>
+        <section id="projects" class="py-12">
+            <h3 class="text-3xl font-bold text-center mb-10 text-white">My Projects</h3>
 
             <div class="grid md:grid-cols-3 gap-8">
 
                 <!-- Project Card 1: bsc_thesis_micromegas_analysis (Data Analysis) -->
-                <div class="project-card bg-slate-800 p-6 rounded-xl border border-slate-700">
+                <div class="project-card bg-slate-800 p-6 rounded-xl border border-slate-700/70">
                     <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-semibold text-indigo-300">Micromegas Data Analysis (BSc Thesis)</h4>
+                        <h4 class="text-xl font-semibold text-indigo-300">Micromegas Detector Quality Assurance Data Analysis (BSc Thesis)</h4>
                         <!-- SVG Icon for Data/Charts -->
                         <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
                     </div>
                     <p class="text-slate-400 mb-4 text-sm">
-                        **ROOT-based analysis macro** developed for a Bachelor's thesis on a four-chamber Micromegas (MM) muon telescope. Processes raw strip and cluster data to extract key physics metrics.
+                        ROOT-based analysis macro developed for my Bachelor's thesis on a realization of an eight-chamber Micromegas-based muon telescope. Processes raw strip and cluster data to extract key physics metrics.
                     </p>
                     <div class="mt-4 flex space-x-3">
                         <a href="https://github.com/koryfidis/bsc_thesis_micromegas_analysis" target="_blank" class="text-sm font-medium text-indigo-400 hover:text-indigo-300">
@@ -80,14 +119,14 @@
                 </div>
 
                 <!-- Project Card 2: sts_modules_calibration_trim_qa (Detector QA) -->
-                <div class="project-card bg-slate-800 p-6 rounded-xl border border-slate-700">
+                <div class="project-card bg-slate-800 p-6 rounded-xl border border-slate-700/70">
                     <div class="flex items-center justify-between mb-4">
                         <h4 class="text-xl font-semibold text-indigo-300">CBM STS Detector Electronics QA</h4>
                         <!-- SVG Icon for Calibration/Toolbox -->
                         <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.82 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.82 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.82-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.82-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                     </div>
                     <p class="text-slate-400 mb-4 text-sm">
-                        C++/ROOT script for the **GSI ISSP 2025 Research Project** on the CBM STS Detector. Analyzes and validates **ADC trim data** from SMX-v2.2 ASICs to ensure the quality of silicon microstrip detector electronics.
+                        ROOT-based macro for the GSI ISSP 2025 Research Project, on the CBM STS Detector. Analyzes and validates ADC trim data from SMX-v2.2 ASICs to ensure the quality of silicon microstrip detector electronics.
                     </p>
                     <div class="mt-4 flex space-x-3">
                         <a href="https://github.com/koryfidis/sts_modules_calibration_trim_qa" target="_blank" class="text-sm font-medium text-indigo-400 hover:text-indigo-300">
@@ -97,14 +136,14 @@
                 </div>
 
                 <!-- Project Card 3: montecarlo_cosmic_muon_distribution (Simulation) -->
-                <div class="project-card bg-slate-800 p-6 rounded-xl border border-slate-700">
+                <div class="project-card bg-slate-800 p-6 rounded-xl border border-slate-700/70">
                     <div class="flex items-center justify-between mb-4">
                         <h4 class="text-xl font-semibold text-indigo-300">Cosmic Muon Monte Carlo Simulation</h4>
                         <!-- SVG Icon for Atom/Simulation -->
                         <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 5.636a9 9 0 1012.728 0m-12.728 0a9 9 0 00-12.728 0m12.728 0a9 9 0 010 12.728m-12.728 0a9 9 0 010-12.728m12.728 0a9 9 0 000-12.728m-12.728 0a9 9 0 00-12.728 0m12.728 0a9 9 0 010 12.728m-12.728 0a9 9 0 010-12.728m12.728 0a9 9 0 000-12.728m-12.728 0a9 9 0 00-12.728 0m12.728 0a9 9 0 010 12.728m-12.728 0a9 9 0 010-12.728"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v2m0 16v2m-2-2h4m-4-16h4m-16-2h4m-4-16h4"></path></svg>
                     </div>
                     <p class="text-slate-400 mb-4 text-sm">
-                        A **Python script** for basic **track reconstruction** based on Monte Carlo-generated cosmic muon events. Includes data parsing, event visualization, and basic track fitting for simulation results.
+                        A Python script for basic track reconstruction and finding the acceptance angle, based on Monte Carlo-generated cosmic muon events. As part of a project for the course Advanced Studies in Experimental Data Analysis.
                     </p>
                     <div class="mt-4 flex space-x-3">
                         <a href="https://github.com/koryfidis/montecarlo_cosmic_muon_distribution" target="_blank" class="text-sm font-medium text-indigo-400 hover:text-indigo-300">
@@ -118,7 +157,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-12 p-6 border-t border-indigo-900 text-center text-slate-500 text-sm">
+    <footer class="mt-12 p-6 border-t border-indigo-900/50 text-center text-slate-500 text-sm">
         <p>&copy; 2025 Giorgos Koryfidis. Built with GitHub Pages and Tailwind CSS.</p>
     </footer>
 
